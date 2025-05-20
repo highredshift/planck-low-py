@@ -78,6 +78,14 @@ sampler:
 
 - It appears that to run model = get_model(info) below twice will cause error. So everything needs to be defined in this cell.
 
+VERY IMPORTANT:
+
+You only want to call one of these, not both!
+get_model(info): Instantiates the model and loads all likelihoods, but does NOT run sampling.
+
+run(info): Does everything—model construction and sampling (and so will load all likelihoods).
+
+
 '''
 
 
@@ -125,14 +133,14 @@ info['modules'] = cobaya_modules_path
 # Set the output path for chains (adjust as needed)
 # output_path = "/global/cfs/projectdirs/cosmo/work/users/xhuang/xh-repos/planck-low-py/output"
 
-output_path = "/pscratch/sd/x/xshuang/repos/planck-low-py/output_w0wa_test6"
+output_path = "/pscratch/sd/x/xshuang/repos/planck-low-py/output_w0wa_test8"
 
 
 # Add to your info dict:
 info["output"] = output_path
 
 # it appears that to run this a second time will cause error
-model = get_model(info)
+# model = get_model(info)
 
 
 # In[5]:
